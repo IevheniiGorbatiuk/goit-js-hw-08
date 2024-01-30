@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+  }
+
+
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+  }
+  a{
+    text-decoration: none;
+  }
+
+  img{
+    display: block;
+  }
+
+
+               /*///////////  GALLERY  ///////////*/
+.gallery{
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 24px;
+    justify-content: center;
+}
+.gallery-image{
+    width: 360px;
+    height: 200px;
+}
+.gallery-image:hover{
+    transform: scale(1.04);
+}
+.image-original{
+    width: 1112px;
+    height: 640px;
+}
