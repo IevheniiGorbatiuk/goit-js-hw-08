@@ -66,6 +66,7 @@ const images = [
 
   const gallery = document.querySelector(".gallery");
   let lightbox;
+  let visible;
   let markup = images
   .map((image) =>
     `<li class="gallery-item">
@@ -83,22 +84,27 @@ const images = [
 
 gallery.insertAdjacentHTML("afterbegin", markup);
 
+
 gallery.addEventListener("click", (event) =>{
     event.preventDefault();
     if(event.target.classList.contains("gallery-image")){
         lightbox = basicLightbox.create(`
         <img class="image-original" src="${event.target.dataset.source}"
-        />`)
-        console.log(event.target);
+        />`, {
+            onClose: ()=>{
+                document.removeEventListener("keydown", closeFnctn);
+
+          }
+        })
         lightbox.show();
         document.addEventListener("keydown", closeFnctn)
+
     };
-    
 });
 
 function closeFnctn(event){
-    if(event.key == "Escape" || event.code == "Escape"){
+    if(event.key == "Escape"){
         lightbox.close()
-        document.removeEventListener("keydown", closeFnctn);
     };
 ;}
+
